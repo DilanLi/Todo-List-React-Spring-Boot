@@ -17,7 +17,7 @@ export default function Login(props) {
     function loginClicked() {
         if (username === "awesomeUser" && password === "12345"){
             setLoginSuccess("success");
-            props.history.push("/welcome")
+            props.history.push(`/welcome/${username}`)
         } else {
             setLoginSuccess("unsuccessful")
         }
