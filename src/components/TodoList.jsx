@@ -25,27 +25,27 @@ export default function TodoList() {
 
     return (
         <div>
-            <h1>To Do List</h1>
-            <table>
-                <thead>
-                    <tr>
-                        <th>id</th>
-                        <th>description</th>
-                        <th>done</th>
-                        <th>due date</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {todos.map(todo => 
+            <h1 className="mt-5 mb-3">To Do List</h1>
+            <div className="container">
+                <table className="table">
+                    <thead>
                         <tr>
-                            <td>{todo.id}</td>
-                            <td>{todo.description}</td>
-                    <td>{todo.done.toString()}</td>
-                    <td>{todo.dueDate.toString()}</td>
+                            <th>description</th>
+                            <th>done</th>
+                            <th>due date</th>
                         </tr>
-                    )}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {todos.map(todo =>
+                            <tr>
+                                <td>{todo.description}</td>
+                                <td>{todo.done.toString()}</td>
+                                <td>{todo.dueDate.toString()}</td>
+                            </tr>
+                        )}
+                    </tbody>
+                </table>
+            </div>
         </div>
     )
 }
