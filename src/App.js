@@ -5,6 +5,7 @@ import UrlError from "./components/UrlError";
 import TodoList from "./components/TodoList";
 import NavBar from "./components/NavBar";
 import Logout from "./components/Logout";
+import AuthenticatedRoutes from "./components/AuthenticatedRoutes";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
 function App() {
@@ -16,9 +17,9 @@ function App() {
           <Switch>
           <Route path="/" exact component={Login}/>
           <Route path="/login" exact component={Login}/>
-          <Route path="/welcome/:name" exact component={Welcome}/>
-          <Route path="/todos" exact component={TodoList}/>
-          <Route path="/logout" exact component={Logout}/>
+          <AuthenticatedRoutes path="/welcome/:name" exact component={Welcome}/>
+          <AuthenticatedRoutes path="/todos" exact component={TodoList}/>
+          <AuthenticatedRoutes path="/logout" exact component={Logout}/>
           <Route component={UrlError}/>
           </Switch>
         </>

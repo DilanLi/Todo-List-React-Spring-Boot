@@ -37,7 +37,7 @@ export default function TodoList() {
                     </thead>
                     <tbody>
                         {todos.map(todo =>
-                            <tr>
+                            <tr key={todo.id}>
                                 <td>{todo.description}</td>
                                 <td>{todo.done.toString()}</td>
                                 <td>{todo.dueDate.toString()}</td>

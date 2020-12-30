@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./style.css";
+import Authentication from "../Authentication.js";
 
 export default function Login(props) {
     const [username, setUsername] = useState("");
@@ -17,7 +18,8 @@ export default function Login(props) {
     function loginClicked() {
         if (username === "awesomeUser" && password === "12345") {
             setLoginSuccess("success");
-            props.history.push(`/welcome/${username}`)
+            props.history.push(`/welcome/${username}`);
+            Authentication.registerSuccessfulLogin(username, password);
         } else {
             setLoginSuccess("unsuccessful")
         }
