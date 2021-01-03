@@ -21,3 +21,6 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+/todolist-java/pom.xml
+/todolist-java/src/main/java/com/todolist/restfulwebservices/helloworld/

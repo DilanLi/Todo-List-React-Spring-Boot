@@ -1,29 +1,23 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react';
+import TodoDataService from "../api/todo/TodoDataService";
+import Authentication from "../Authentication";
 
 export default function TodoList() {
-    const [todos, setTodos] = useState([
-        {
-            id: 1,
-            description: "Learn Java",
-            done: false,
-            dueDate: new Date()
-        },
-        {
-            id: 2,
-            description: "Get better at React",
-            done: false,
-            dueDate: new Date()
-        },
-        {
-            id: 3,
-            description: "Finish reading 3 Body",
-            done: false,
-            dueDate: new Date()
-        }
-    ])
 
+    useEffect(() => {
+        retrieveTodos()
+    })
 
-    return (
+    function retrieveTodos(){
+        let username = Authentication.getLoggedInUsername();
+        TodoDataService.retrieveAllTodos(username)
+        .then( res => setTodos(res.data))
+        .catch( err => console.log(err))
+    }
+
+    const [todos, setTodos] = useState([])
+    
+    return (        
         <div>
             <h1 className="mt-5 mb-3">To Do List</h1>
             <div className="container">
@@ -40,7 +34,7 @@ export default function TodoList() {
                             <tr key={todo.id}>
                                 <td>{todo.description}</td>
                                 <td>{todo.done.toString()}</td>
-                                <td>{todo.dueDate.toString()}</td>
+                                <td>{todo.targetDate}</td>
                             </tr>
                         )}
                     </tbody>

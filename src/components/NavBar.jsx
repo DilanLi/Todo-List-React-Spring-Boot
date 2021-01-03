@@ -4,7 +4,7 @@ import Authentication from "../Authentication.js";
 
 function NavBar() {
 
-    const checkLoggedIn = Authentication.checkLoggedIn();
+    const checkLoggedIn = Authentication.getLoggedInUsername();
 
     return (
         <div>

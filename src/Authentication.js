@@ -7,11 +7,11 @@ class Authentication {
         sessionStorage.removeItem("authenticatedUser", username)
     }
 
-    checkLoggedIn() {
+    getLoggedInUsername() {
         let user = sessionStorage.getItem("authenticatedUser");
         if (user === null) 
-            return false;
-        return true;
+            return "";
+        return user;
     }
 }
 
